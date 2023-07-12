@@ -35,6 +35,7 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
         };
 
         var prevPlayerModel = map.PlayerModel;
+        var defaultMapName = map.MapName;
 
         for (int i = 0; i < cars.Length; i++)
         {
@@ -57,8 +58,6 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
                 if (map.Collection == "Stadium" && car == "StadiumCar") continue;
             }
 
-            map.PlayerModel = (car, "Vehicles", "");
-
             var modernCar = car switch
             {
                 "American" => "DesertCar",
@@ -67,12 +66,18 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
                 _ => car
             };
 
-            var pureFileName = $"{string.Format(Config.MapNameFormat, TextFormatter.Deformat(map.MapName), modernCar)}.Challenge.Gbx";
+            map.PlayerModel = (car, "Vehicles", "");
+            map.MapName = string.Format(Config.MapNameFormat, defaultMapName, modernCar);
+
+            var pureFileName = $"{TextFormatter.Deformat(map.MapName)}.Challenge.Gbx";
             var validFileName = string.Join("_", pureFileName.Split(Path.GetInvalidFileNameChars()));
 
+            // Each map executes the save method
             yield return new(map, $"Tracks/Envimix/{validFileName}", IsManiaPlanet: false);
         }
 
+        // Return to previous to temporarily fix the mutability issue
         map.PlayerModel = prevPlayerModel;
+        map.MapName = defaultMapName;
     }
 }
