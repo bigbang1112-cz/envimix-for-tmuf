@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EnvimixForTmufCLI": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\petrp\\Documents\\TrackMania\\Tracks\\Challenges\\My Challenges\\ClipToReplayTestMap.Challenge.Gbx\""
+    }
+  }
+}
