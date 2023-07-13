@@ -39,11 +39,11 @@ For 100% offline control, you can use the CLI version. Drag and drop your desire
 
 The tool notifies you about new versions after launching it. You can press U to directly open the web page where you can download the new version. Auto-updater might come in the future.
 
-<h2 align="center">#20yearsoftrackmania</h2>
-
 ### Specific command line arguments
 
 - `-nopause`
 - `-config [ConfigName]`
 - `-o [OutputDir]` or `-output [OutputDir]`
 - `-c:[AnySettingName] [value]` - Force setting through the command line, **currently works only for string values.**
+
+<h2 align="center">#20yearsoftrackmania</h2>
