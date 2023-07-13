@@ -1,4 +1,9 @@
-# Envimix For TMUF
+# Envimix For TMUF [(online)](https://gbx.bigbang1112.cz/tool/envimix-for-tmuf)
+
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/BigBang1112-cz/envimix-for-tmuf?include_prereleases&style=for-the-badge)](https://github.com/BigBang1112-cz/envimix-for-tmuf/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/BigBang1112-cz/envimix-for-tmuf/total?style=for-the-badge)](https://github.com/BigBang1112-cz/envimix-for-tmuf/releases)
+
+Hosted on [Gbx Web Tools](https://github.com/bigbang1112-cz/gbx), lives on [Gbx Tool API](https://github.com/bigbang1112-cz/gbx-tool-api), internally powered by [GBX.NET](https://github.com/BigBang1112/gbx-net).
 
 With this tool, you can generate the same maps but with different TMUF cars. For TM2 envimix, soon.
 
