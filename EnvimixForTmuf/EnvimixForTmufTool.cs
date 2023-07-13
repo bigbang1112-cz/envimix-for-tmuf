@@ -1,5 +1,6 @@
 ﻿using GBX.NET.Engines.Game;
 using GbxToolAPI;
+using System.Text;
 using TmEssentials;
 
 namespace EnvimixForTmuf;
@@ -35,6 +36,7 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
         };
 
         var prevPlayerModel = map.PlayerModel;
+        var defaultMapUid = map.MapUid;
         var defaultMapName = map.MapName;
 
         for (int i = 0; i < cars.Length; i++)
@@ -67,6 +69,7 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
             };
 
             map.PlayerModel = (car, "Vehicles", "");
+            map.MapUid = $"{Convert.ToBase64String(Encoding.ASCII.GetBytes(Guid.NewGuid().ToString()))[..10]}{defaultMapUid.Substring(9, 10)}ENVIMIX";
             map.MapName = string.Format(Config.MapNameFormat, defaultMapName, modernCar);
 
             var pureFileName = $"{TextFormatter.Deformat(map.MapName)}.Challenge.Gbx";
