@@ -24,7 +24,7 @@ GenerateDefaultCarVariant: false # If to also generate the environment's default
 
 ## CLI build
 
-For 100% offline control, you can use the CLI version. Drag and drop your desired replays onto the EnvimixForTmufCLI(.exe).
+For 100% offline control, you can use the CLI version. Drag and drop your desired maps onto the EnvimixForTmufCLI(.exe).
 
 **The installation paths still suggest ManiaPlanet paths, which is an oversight.** This will be possible to control in the future and fixed for this scenario.
 
