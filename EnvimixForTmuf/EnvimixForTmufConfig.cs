@@ -13,4 +13,5 @@ public class EnvimixForTmufConfig : Config
     public bool IncludeCoastCar { get; set; } = true;
     public bool IncludeStadiumCar { get; set; } = true;
     public bool GenerateDefaultCarVariant { get; set; }
+    public ValidationMode ValidationMode { get; set; } = ValidationMode.Real;
 }

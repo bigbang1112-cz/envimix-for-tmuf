@@ -72,6 +72,28 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
             map.MapUid = $"{Convert.ToBase64String(Encoding.ASCII.GetBytes(Guid.NewGuid().ToString()))[..10]}{defaultMapUid.Substring(9, 10)}ENVIMIX";
             map.MapName = string.Format(Config.MapNameFormat, defaultMapName, modernCar);
 
+            switch (Config.ValidationMode)
+            {
+                case ValidationMode.None:
+                    break;
+                case ValidationMode.Fake:
+                    map.TMObjective_AuthorTime = TimeInt32.MaxValue;
+                    map.TMObjective_GoldTime = TimeInt32.MaxValue;
+                    map.TMObjective_SilverTime = TimeInt32.MaxValue;
+                    map.TMObjective_BronzeTime = TimeInt32.MaxValue;
+                    break;
+                case ValidationMode.Real:
+                    map.TMObjective_AuthorTime = new(-1);
+                    map.TMObjective_GoldTime = new(-1);
+                    map.TMObjective_SilverTime = new(-1);
+                    map.TMObjective_BronzeTime = new(-1);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            map.CrackPassword();
+
             var pureFileName = $"{TextFormatter.Deformat(map.MapName)}.Challenge.Gbx";
             var validFileName = string.Join("_", pureFileName.Split(Path.GetInvalidFileNameChars()));
 
