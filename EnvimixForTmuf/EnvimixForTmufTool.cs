@@ -72,6 +72,8 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
             map.MapUid = $"{Convert.ToBase64String(Encoding.ASCII.GetBytes(Guid.NewGuid().ToString()))[..10]}{defaultMapUid.Substring(9, 10)}ENVIMIX";
             map.MapName = string.Format(Config.MapNameFormat, defaultMapName, modernCar);
 
+            map.CrackPassword();
+
             var pureFileName = $"{TextFormatter.Deformat(map.MapName)}.Challenge.Gbx";
             var validFileName = string.Join("_", pureFileName.Split(Path.GetInvalidFileNameChars()));
 
