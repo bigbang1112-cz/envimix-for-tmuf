@@ -12,7 +12,7 @@ public class EnvimixForTmufTool : ITool, IHasOutput<IEnumerable<NodeFile<CGameCt
 {
     private readonly CGameCtnChallenge map;
 
-    private static readonly string[] cars = new[] { "American", "SnowCar", "Rally", "SportCar", "BayCar", "CoastCar", "StadiumCar" };
+    private static readonly string[] cars = ["American", "SnowCar", "Rally", "SportCar", "BayCar", "CoastCar", "StadiumCar"];
 
     public EnvimixForTmufConfig Config { get; set; } = new();
 
